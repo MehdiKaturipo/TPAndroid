@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="btnEnrgr" type="id" />
+    <item name="txt1" type="id" />
+    <item name="imageProfil" type="id" />
+    <item name="txtName" type="id" />
+    <item name="LabelNom" type="id" />
+    <item name="txtPrenom" type="id" />
+    <item name="LabelPrenom" type="id" />
+    <item name="txtClass" type="id" />
+    <item name="LabelClass" type="id" />
+    <item name="txtRemarque" type="id" />
+    <item name="LabelRemarque" type="id" />
+</resources>
