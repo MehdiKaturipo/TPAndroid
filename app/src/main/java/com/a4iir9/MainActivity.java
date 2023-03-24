@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,9 +16,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        TextView texte = findViewById(R.id.txt1);
-
-        texte.setText("Here we go !!");
         Log.d(TAGNAME,"on est dans onCreate");
     }
 
@@ -54,5 +53,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onRestart() {
         super.onRestart();
         Log.d(TAGNAME,"on est dans onRestart");
+    }
+
+    public void clickHander(View view) {
+        Toast.makeText(this, "Boutton clické", Toast.LENGTH_SHORT).show();
     }
 }
