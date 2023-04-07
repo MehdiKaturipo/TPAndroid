@@ -8,9 +8,17 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONObject;
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAGNAME = MainActivity.class.getSimpleName();
+    private static final String HTTP_URL ="https://belatar.name/rest/profile.php?login=test&passwd=test&id=9998" ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +55,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         Log.d(TAGNAME,"on est dans onResume");
+
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.GET, HTTP_URL, null, new Response.Listener<JSONObject>() {
+            @Override
+            public void onResponse(JSONObject response) {
+               // TAGNAME = (MainActivity.class.getSimpleName())
+                Log.d(TAGNAME,response.toString());
+            }
+            },new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Log.e(TAGNAME,error.toString());
+            }
+        });
+        VolleySingleton.getInstance(getApplicationContext()).addToRequestQueue(jsonObjectRequest);
     }
 
     @Override
